@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  
+
   resources :posts do
-	resources :comments
-	resources :likes
+	   resources :comments
   end
+
+  resources :posts do
+    resources :likes, only: [:create]
+  end
+
 
   root 'posts#index'
 

@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
-	# @post.comments‚ÆŒã‚Åˆø‚Á’£‚Á‚Ä‚±‚ê‚é
+	# @post.commentsï¿½ÆŒï¿½ï¿½Åˆï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½
 	has_many :comments
 	has_many :likes
-	
-	#“ü—Í•K{
+
+	#ï¿½ï¿½ï¿½Í•Kï¿½{
 	validates :content, presence: true
 end

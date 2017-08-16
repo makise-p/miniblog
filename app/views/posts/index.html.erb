@@ -8,8 +8,7 @@
 	<li>
 		<%= post.id %>:
 		<%= link_to post.content, post_path(post.id) %><br>
-		<%= link_to "Good", root_path %>:
-		|
+		<%= render partial: 'likes/like', locals: { post: post, likes: @likes } %>
 		<%= "comment" %>:
 		|
 		<% time = post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>

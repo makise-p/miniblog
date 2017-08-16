@@ -9,10 +9,10 @@
 	<% time = @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
 	<%= "date" %>:<%= time %>
 	|
-	<%= link_to "Good", post_path(@post.id) %>:<br>
+	<%= render partial: 'likes/like', locals: { post: @post, likes: @likes } %>
 
 	<h3>Comments</h3>
-	
+
 <% if @post.comments.any? %>
 <ul>
 <% @post.comments.each do |comment| %>
