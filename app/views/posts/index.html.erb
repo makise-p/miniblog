@@ -1,0 +1,19 @@
+<h2>
+	Mini blog
+	<%= render 'form' %>
+</h2>
+
+<ul>
+<% @posts&.each do |post| %>
+	<li>
+		<%= post.id %>:
+		<%= link_to post.content, post_path(post.id) %><br>
+		<%= link_to "Good", root_path %>:
+		|
+		<%= "comment" %>:
+		|
+		<% time = post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+		<%= "date" %>:<%= time %>
+	</li>
+<%end%>
+</ul>

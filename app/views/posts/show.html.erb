@@ -1,0 +1,35 @@
+<h2>
+	Mini blog
+	<br>
+	<%= link_to "back", root_path %>
+</h2>
+
+<p>
+	<%= @post.id %>:<%= simple_format @post.content %><br>
+	<% time = @post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+	<%= "date" %>:<%= time %>
+	|
+	<%= link_to "Good", post_path(@post.id) %>:<br>
+
+	<h3>Comments</h3>
+	
+<% if @post.comments.any? %>
+<ul>
+<% @post.comments.each do |comment| %>
+<li>
+	<%= comment.body %>
+	|
+	<% time = comment.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+	<%= "date" %>:<%= time %>
+</li>
+<% end %>
+</ul>
+<% end %>
+
+	<%= form_for ([@post, @post.comments.build]) do |f| %>
+	<p>
+		<%= f.text_field :body %>
+		<%= f.submit('accept') %>
+	</p>
+	<% end %>
+</p>
