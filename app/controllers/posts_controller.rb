@@ -24,7 +24,8 @@ class PostsController < ApplicationController
   	#@post = Post.new(params[:post])
   	#@post = Post.new(params.require(:post).permit(:content))
   	@post = Post.new(post_params)
-
+    @likes = Like.where(params[:post_id])
+    
   	if @post.save
   		#redirect
   		redirect_to posts_path
