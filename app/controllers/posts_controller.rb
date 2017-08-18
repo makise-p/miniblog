@@ -14,7 +14,16 @@ class PostsController < ApplicationController
   def new
   end
 
-  def like
+  def likes
+    @likes = Like.where(params[:post_id])
+    if likes_count = likes_count + 1
+      redirect_to posts_path
+    end
+  end
+
+  def change
+    @likes = Like.where(params[:post_id])
+    redirect_to posts_path
   end
 
 
@@ -25,7 +34,7 @@ class PostsController < ApplicationController
   	#@post = Post.new(params.require(:post).permit(:content))
   	@post = Post.new(post_params)
     @likes = Like.where(params[:post_id])
-    
+
   	if @post.save
   		#redirect
   		redirect_to posts_path
