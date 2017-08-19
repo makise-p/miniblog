@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
   	if @post.save
   		#redirect
-  		redirect_to posts_path
+  		redirect_to '/'
   	else
   		#render plain: @post.errors.inspect
   		render 'index'
